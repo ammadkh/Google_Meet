@@ -42,3 +42,16 @@ li.nav-item {
   border-radius: 5px;
   box-shadow: 1px 1px 5px gray;
 }
+
+textarea:focus,
+input:focus {
+  outline: none;
+}
+
+.cursor-pointer {
+  cursor: pointer;
+}
+
+.jumbotron {
+  background-color: white;
+}
