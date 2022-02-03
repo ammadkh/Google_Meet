@@ -13,6 +13,12 @@ body {
   font-family: "Lato";
 }
 
+ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
 .nav-item a {
   color: gray !important;
   font-size: 16px;
@@ -28,4 +34,11 @@ body {
 
 li.nav-item {
   padding: 0 10px;
+}
+
+.signin-img {
+  height: 390px;
+  border: 25px solid white;
+  border-radius: 5px;
+  box-shadow: 1px 1px 5px gray;
 }
