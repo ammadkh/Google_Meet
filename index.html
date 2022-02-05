@@ -33,10 +33,10 @@
                     <a href="#" class="nav-link">Sign-in</a>
                 </li>
                 <li class="nav-item">
-                    <button class="btn btn-outline-secondary text-info btn-lg font-weight-bold">Join the Meeting</button>
+                    <button class="btn btn-outline-secondary text-info btn-lg font-weight-bold join-meeting">Join the Meeting</button>
                 </li>
                 <li class="nav-item">
-                    <button class="btn btn-info text-light btn-lg font-weight-bold">Start a Meeting</button>
+                    <button class="btn btn-info text-light btn-lg font-weight-bold new-meeting">Start a Meeting</button>
                 </li>
             </ul>
         </div>
@@ -48,7 +48,7 @@
                 <p style="font-size: 20px;">We're redesigning Google Meet service for secure business meetings and making it free for everyone to use.</p>
                 <ul class="display-center justify-content-start">
                     <li>
-                        <button class="btn btn-lg text-light font-weight-bold display-center" style="background-color: #01796b;">
+                        <button class="btn btn-lg text-light font-weight-bold display-center new-meeting" style="background-color: #01796b;">
                             <span class="material-icons mr-2">video_call</span>
                             <span>New Meeting</span>
                         </button>
@@ -56,10 +56,10 @@
                     <li class="pl-3">
                         <button class="btn btn-lg btn-outline-secondary text-dark font-weight-bold display-center" style="background-color: #ffffff;">
                             <span class="material-icons mr-2">keyboard</span>
-                            <input type="text" placeholder="Enter a code" style="border: none;">
+                            <input type="text" class="enter-code" placeholder="Enter a code" style="border: none;">
                         </button>
                     </li>
-                    <li class="text-dark pl-2 cursor-pointer font-weight-bold">
+                    <li class="text-dark pl-2 cursor-pointer font-weight-bold join-action">
                         Join
                     </li>
                 </ul>
@@ -73,4 +73,25 @@
         <h6>Learn more about <span class="learn-more text-info">Google Meet</span>.</h6>
     </footer>
 </body>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+<script>console.log($)</script>
+<script>$(document).ready(function() {
+    $(document).click('.join-meeting', function() {
+        $('.enter-code').focus();
+    });
+    $(document).on('click','.join-action', function(){
+        const code = $('.enter-code').val();
+        const currentUrl = window.location.origin;
+        const nextUrl = currentUrl + '?meetingId=' + code;
+        console.log(nextUrl, 'nexturl')
+     window.location.replace(nextUrl);
+     });
+     $(document).on('click', '.new-meeting', function() {
+         const newId = Math.floor(Math.random()*100000000);
+        const currentUrl = window.location.origin;
+         console.log(newId, 'neww');
+         const newUrl = currentUrl + '?meetingId=' + newId;
+         window.location.replace(newUrl);
+     })
+})</script>
 </html>
